@@ -9,7 +9,10 @@ public class MEIN {
 
     private Scanner scanner = new Scanner(System.in);
     private ServicioCliente servicio = new ServicioCliente();
-    private Cliente datos;
+    //private Cliente datos; se comentó por ->
+    //Solo necesitabamos una variable para guardar al cliente. Y dejé "cliente" para evitar confusiones.
+    // 'null' para indicar que esta variable de referencia no tiene un objeto asignado aún. 
+    private Cliente cliente = null;
 
     public static void main(String[] args) {
         MEIN app = new MEIN();
@@ -29,20 +32,35 @@ public class MEIN {
 
                 switch (opcionMenu) {
                     case 1 ->
-                        datos = servicio.registrarCliente(scanner);
+                        cliente = servicio.registrarCliente(scanner);
                     case 2 -> {
-                        if (datos != null) {
-                            datos.mostrarDatos();
+                        if (cliente != null) {
+                            cliente.mostrarDatos();
                         } else {
                             System.out.println("Primero se debe registrar un cliente.");
                         }
                     }
-                    case 3 ->  
-                        System.out.println("depositar");//integrar a menu
-                    case 4 -> 
-                        System.out.println("girar");//integrar a menu
-                    case 5 ->
-                        System.out.println("consultar saldo");//integrar a menu
+                    case 3 -> {
+                        if (cliente != null) {
+                            servicio.realizarDeposito(cliente, scanner);
+                        } else {
+                            System.out.println("Primero se debe registrar un cliente.");
+                        }
+                    }
+                    case 4 -> {
+                        if (cliente != null) {
+                            servicio.realizarGiro(cliente, scanner);
+                        } else {
+                            System.out.println("Primero se debe registrar un cliente.");
+                        }
+                    }
+                    case 5 -> {
+                        if (cliente != null) {
+                            System.out.println("Su saldo actual es: $" + cliente.getCuenta().getSaldo());
+                        } else {
+                            System.out.println("Primero se debe registrar un cliente.");
+                        }
+                    }
                     case 6 ->
                         System.out.println(">> Saliendo del sistema...");
                     default ->

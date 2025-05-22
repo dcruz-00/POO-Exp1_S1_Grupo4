@@ -7,12 +7,11 @@ public class Cliente {
     private String apellidoPaterno;
     private String domicilio;
     private String comuna;
-    private String telefono;
+    private int telefono;
     private CuentaCorriente cuenta;
     
 //constructor, lo hice de nuevo para validad que estuviera todo ok, pero debería ser lo mismo
-
-public Cliente(String rut, String nombre, String apellidoMaterno, String apellidoPaterno, String domicilio, String comuna, String telefono, CuentaCorriente cuenta) {
+public Cliente(String rut, String nombre, String apellidoMaterno, String apellidoPaterno, String domicilio, String comuna, int telefono, CuentaCorriente cuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidoMaterno = apellidoMaterno;
@@ -22,8 +21,6 @@ public Cliente(String rut, String nombre, String apellidoMaterno, String apellid
         this.telefono = telefono;
         this.cuenta = cuenta;
     }
-
-
 
 //getters y setters, al final solo pueden ponerse getters, 
     //pero si deseamos que los datos puedan cambiar, les ponemos setters en esta sección tambien.
@@ -42,7 +39,7 @@ public Cliente(String rut, String nombre, String apellidoMaterno, String apellid
 
     public String getComuna() { return comuna; }
 
-    public String getTelefono() { return telefono; }
+    public int getTelefono() { return telefono; }
 
     public CuentaCorriente getCuenta() { return cuenta; }
 
@@ -58,14 +55,14 @@ public Cliente(String rut, String nombre, String apellidoMaterno, String apellid
 
     public void setComuna(String comuna) { this.comuna = comuna; }
 
-    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public void setTelefono(int telefono) { this.telefono = telefono; }
 
     public void setCuenta(CuentaCorriente cuenta) { this.cuenta = cuenta; }
        
     
     public void mostrarDatos() { //se agregaron líneas para mostrar la información+
-                                   //+tal piden las instrucciones.
-        
+                                 //+tal piden las instrucciones.
+        System.out.println("--------------------------------");
         System.out.println("RUT: " + rut);
         System.out.println("Nombre: " + nombre);
         System.out.println("Apellido paterno: " + apellidoPaterno);
@@ -73,7 +70,8 @@ public Cliente(String rut, String nombre, String apellidoMaterno, String apellid
         System.out.println("Domicilio: " + domicilio);
         System.out.println("Comuna: " + comuna);
         System.out.println("Teléfono: " + telefono);
-        System.out.println("Número de cuenta corriente: ");//completar con get
-        System.out.println("Saldo: "); //completar con get
+        System.out.println("Número de cuenta corriente: " + cuenta.getNumeroCuenta());//completar con get | completado
+        System.out.println("Saldo: " + cuenta.getSaldo()); //completar con get | completado
+        System.out.println("--------------------------------");
     }
 }
