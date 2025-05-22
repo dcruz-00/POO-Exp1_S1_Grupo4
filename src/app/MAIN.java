@@ -3,19 +3,16 @@ package app;
 import datos.Cliente;
 import servicio.ServicioCliente;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
-public class MEIN {
+public class MAIN {
 
-    private Scanner scanner = new Scanner(System.in);
-    private ServicioCliente servicio = new ServicioCliente();
-    //private Cliente datos; se comentó por ->
-    //Solo necesitabamos una variable para guardar al cliente. Y dejé "cliente" para evitar confusiones.
+    private final Scanner scanner = new Scanner(System.in);
+    private final ServicioCliente servicio = new ServicioCliente();
     // 'null' para indicar que esta variable de referencia no tiene un objeto asignado aún. 
     private Cliente cliente = null;
 
     public static void main(String[] args) {
-        MEIN app = new MEIN();
+        MAIN app = new MAIN();
         app.ejecutarMenu();
     }
 
