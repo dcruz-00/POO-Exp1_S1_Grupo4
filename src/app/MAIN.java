@@ -8,8 +8,6 @@ public class MAIN {
 
     private final Scanner scanner = new Scanner(System.in);
     private final ServicioCliente servicio = new ServicioCliente();
-    // 'null' para indicar que esta variable de referencia no tiene un objeto asignado aún. 
-    private Cliente cliente = null;
 
     public static void main(String[] args) {
         MAIN app = new MAIN();
@@ -29,33 +27,49 @@ public class MAIN {
 
                 switch (opcionMenu) {
                     case 1 ->
-                        cliente = servicio.registrarCliente(scanner);
+                        servicio.registrarCliente(scanner);
                     case 2 -> {
-                        if (cliente != null) {
-                            cliente.mostrarDatos();
+                        System.out.println("Por favor ingrese su RUT:");
+                        String rut = scanner.nextLine();
+                        Cliente clienteEncontrado = servicio.buscarClientePorRut(rut);
+
+                        if (clienteEncontrado != null) {
+                            clienteEncontrado.mostrarDatos();
                         } else {
-                            System.out.println("Primero se debe registrar un cliente.");
+                            System.out.println("Cliente no encontrado.");
                         }
                     }
                     case 3 -> {
-                        if (cliente != null) {
-                            servicio.realizarDeposito(cliente, scanner);
+                        System.out.println("Por favor ingrese su RUT:");
+                        String rut = scanner.nextLine();
+                        Cliente clienteEncontrado = servicio.buscarClientePorRut(rut);
+
+                        if (clienteEncontrado != null) {
+                            servicio.realizarDeposito(clienteEncontrado, scanner);
                         } else {
-                            System.out.println("Primero se debe registrar un cliente.");
+                            System.out.println("Cliente no encontrado.");
                         }
                     }
                     case 4 -> {
-                        if (cliente != null) {
-                            servicio.realizarGiro(cliente, scanner);
+                        System.out.println("Por favor ingrese su RUT:");
+                        String rut = scanner.nextLine();
+                        Cliente clienteEncontrado = servicio.buscarClientePorRut(rut);
+
+                        if (clienteEncontrado != null) {
+                            servicio.realizarGiro(clienteEncontrado, scanner);
                         } else {
-                            System.out.println("Primero se debe registrar un cliente.");
+                            System.out.println("Cliente no encontrado.");
                         }
                     }
                     case 5 -> {
-                        if (cliente != null) {
-                            System.out.println("Su saldo actual es: $" + cliente.getCuenta().getSaldo());
+                        System.out.println("Por favor ingrese su RUT:");
+                        String rut = scanner.nextLine();
+                        Cliente clienteEncontrado = servicio.buscarClientePorRut(rut);
+
+                        if (clienteEncontrado != null) {
+                            System.out.println("Su saldo actual es: $" + clienteEncontrado.getCuenta().getSaldo());
                         } else {
-                            System.out.println("Primero se debe registrar un cliente.");
+                            System.out.println("Cliente no encontrado.");
                         }
                     }
                     case 6 ->

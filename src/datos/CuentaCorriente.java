@@ -2,7 +2,7 @@ package datos;
 
 public class CuentaCorriente {
 
-    private final int numero; 
+    private int numero; 
     private int saldo; 
 
     public CuentaCorriente(int numeroCuenta) {
@@ -18,6 +18,15 @@ public class CuentaCorriente {
     public int getSaldo() {
         return saldo;
     }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+
 
     public void depositar(int monto) {
         if (monto <= 0) {

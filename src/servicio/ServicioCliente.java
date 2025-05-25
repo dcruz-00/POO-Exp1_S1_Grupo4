@@ -56,7 +56,7 @@ public class ServicioCliente {
                 telefono = Integer.parseInt(entrada);
                 break;
             } else {
-                System.out.println("ERROR: El telefono debe incluir 8 digitos numericos.");
+                System.out.println("ERROR: El telefono debe incluir 8 digitos.");
             }
         }
 
@@ -68,7 +68,7 @@ public class ServicioCliente {
                 numeroCuenta = Integer.parseInt(entrada);
                 break;
             } else {
-                System.out.println("ERROR: El numero de cuenta dene inlcuir 9 digitos numericos.");
+                System.out.println("ERROR: El numero de cuenta debe incluir 9 digitos.");
             }
         }
 
@@ -138,6 +138,15 @@ public class ServicioCliente {
                 System.out.println("Entrada invalida. Solo se permiten letras. Intente nuevamente.");
             }
         }
+    }
+
+    public Cliente buscarClientePorRut(String rut) {
+        for (Cliente c : clientes) {
+            if (c.getRut().equalsIgnoreCase(rut)) {
+                return c;
+            }
+        }
+        return null;
     }
 
 }
