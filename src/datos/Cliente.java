@@ -10,10 +10,10 @@ public class Cliente {
     private String domicilio;
     private String comuna;
     private int telefono;
-    private CuentaCorriente cuenta;
+    private CuentaBancaria cuenta;
 
 // Constructor
-    public Cliente(String rut, String nombre, String apellidoMaterno, String apellidoPaterno, String domicilio, String comuna, int telefono, CuentaCorriente cuenta) {
+    public Cliente(String rut, String nombre, String apellidoMaterno, String apellidoPaterno, String domicilio, String comuna, int telefono, CuentaBancaria cuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidoMaterno = apellidoMaterno;
@@ -53,7 +53,7 @@ public class Cliente {
         return telefono;
     }
 
-    public CuentaCorriente getCuenta() {
+    public CuentaBancaria getCuenta() {
         return cuenta;
     }
 
@@ -85,7 +85,7 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public void setCuenta(CuentaCorriente cuenta) {
+    public void setCuenta(CuentaBancaria cuenta) {
         this.cuenta = cuenta;
     }
 

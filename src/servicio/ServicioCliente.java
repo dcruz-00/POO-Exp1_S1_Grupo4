@@ -1,7 +1,7 @@
 package servicio;
 
 import datos.Cliente;
-import datos.CuentaCorriente;
+import datos.CuentaBancaria;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -72,7 +72,7 @@ public class ServicioCliente {
             }
         }
 
-        CuentaCorriente cuenta = new CuentaCorriente(numeroCuenta);
+        CuentaBancaria cuenta = new CuentaBancaria(numeroCuenta);
         Cliente nuevoCliente = new Cliente(rut, nombre, apellidoMaterno, apellidoPaterno, domicilio, comuna, telefono, cuenta);
         clientes.add(nuevoCliente);
 

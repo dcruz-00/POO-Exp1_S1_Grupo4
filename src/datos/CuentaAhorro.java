@@ -1,10 +1,10 @@
 package datos;
 
-public class CuentaCorriente extends CuentaBancaria {
+public class CuentaAhorro extends CuentaBancaria {
 
     private int saldo;
 
-    public CuentaCorriente(int numeroCuenta, int saldoInicial) {
+    public CuentaAhorro(int numeroCuenta, int saldoInicial) {
         super(numeroCuenta);
         this.saldo = saldoInicial;
     }
@@ -27,10 +27,9 @@ public class CuentaCorriente extends CuentaBancaria {
         }
         saldo += monto;
     }
-    
+
     @Override
     public int getSaldo() {
-    return saldo;
+        return saldo;
     }
-
 }
